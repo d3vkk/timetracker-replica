@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text-4xl font-bold">Vue3 Typescript Tailwind Starter</div>
+    <div class="text-4xl font-bold">Replica</div>
   </div>
 </template>
 
