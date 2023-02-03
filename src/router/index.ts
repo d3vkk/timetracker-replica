@@ -10,6 +10,10 @@ const routes: Array<RouteRecordRaw> = [
     path: "/login",
     component: () => import("../views/Login.vue"),
   },
+  {
+    path: "/timetracker",
+    component: () => import("../views/TimeTracker.vue"),
+  },
 ];
 const router = createRouter({
   history: createWebHistory(),
