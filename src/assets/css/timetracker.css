@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
+
+:root {
+    --primary: hsl(246, 80%, 60%);
+
+    --work: hsl(15, 100%, 70%);
+    --play: hsl(195, 74%, 62%);
+    --study: hsl(348, 100%, 68%);
+    --exercise: hsl(145, 58%, 55%);
+    --social: hsl(264, 64%, 52%);
+    --selfcare: hsl(43, 84%, 65%);
+
+    --blue-400: hsl(226, 43%, 10%);
+    --blue-300: hsl(235, 46%, 20%);
+    --blue-200: hsl(235, 45%, 61%);
+    --blue-100: hsl(236, 100%, 87%);
+
+    --white: #ffffff;
+    --black: #000000;
+    --font-small: .8rem;
+    --font-normal: 1rem;
+    --font-big: 2.5rem;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: var(--font-normal);
+}
