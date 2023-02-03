@@ -1,11 +1,11 @@
 <template>
-  <div id="timetracker">
-    <section class="p-10 grid grid-cols-3">
-      <article
-        v-for="singleTime in timeCardData"
-        :key="singleTime.content.title"
-      >
-        <TimeCard :singleTime="singleTime" />
+  <div id="timetracker" class="p-10 grid grid-cols-5 place-content-center">
+    <section class=""><TimeSidebar /></section>
+    <section class="col-start-2 col-end-5">
+      <article class="grid grid-cols-3">
+        <p v-for="singleTime in timeCardData" :key="singleTime.content.title">
+          <TimeCard :singleTime="singleTime" />
+        </p>
       </article>
     </section>
   </div>
@@ -13,6 +13,7 @@
 
 <script setup lang="ts">
 import "../assets/css/timetracker.css";
+import TimeSidebar from "../components/TimeSidebar.vue";
 import TimeCard from "../layouts/TimeCard.vue";
 import { timeCardData } from "../utils/timeCardData";
 </script>
