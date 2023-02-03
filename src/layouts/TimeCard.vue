@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4">
+  <div class="p-4">
     <section
       class="flex flex-row justify-end pr-4 rounded-lg upper-image"
       :style="{ backgroundColor: singleTime.ui.color }"
