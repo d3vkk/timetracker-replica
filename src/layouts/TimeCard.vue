@@ -9,7 +9,7 @@
     <section class="p-6 rounded-lg details-cover">
       <article class="flex flex-row items-center justify-between pb-3">
         <div>{{ singleTime.content.title }}</div>
-        <div v-html="iconEllipsis"></div>
+        <div id="menubar" v-html="iconEllipsis"></div>
       </article>
       <article class="flex flex-row lg:flex-col md:flex-col">
         <div class="details-timeframe-current">
@@ -53,5 +53,9 @@ const props = defineProps({ singleTime: { type: Object, required: true } });
 
 .details-timeframe-previous {
   color: var(--blue-100);
+}
+
+#menubar{
+  cursor: pointer;
 }
 </style>
