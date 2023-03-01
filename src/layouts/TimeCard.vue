@@ -12,21 +12,62 @@
         <div id="menubar" v-html="iconEllipsis"></div>
       </article>
       <article class="flex flex-row lg:flex-col md:flex-col">
-        <div class="details-timeframe-current">
-          {{ singleTime.content.timeframes.weekly.current }}hrs
-        </div>
-        <div class="details-timeframe-previous">
-          Last Week - {{ singleTime.content.timeframes.weekly.previous }}hrs
-        </div>
+        <span v-show="!isTimeFrameUpdated">
+          <div class="details-timeframe-current">
+            {{ singleTime.content.timeframes.daily.current }}hrs
+          </div>
+          <div class="details-timeframe-previous">
+            Last Week - {{ singleTime.content.timeframes.daily.previous }}hrs
+          </div>
+        </span>
+        <span v-show="isTimeFrameUpdated">
+          <div class="details-timeframe-current">
+            {{ timeframe.current }}hrs
+          </div>
+          <div class="details-timeframe-previous">
+            Last Week - {{ timeframe.previous }}hrs
+          </div>
+        </span>
       </article>
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
+import { ref, watch, Ref } from "vue";
 import { iconEllipsis } from "../utils/icons";
+import TimeFrame from "../types/TimeFrame";
 
-const props = defineProps({ singleTime: { type: Object, required: true } });
+const props = defineProps({
+  singleTime: { type: Object, required: true },
+  timeInterval: { type: String, required: true },
+});
+
+var isTimeFrameUpdated: Ref<boolean> = ref(false);
+var timeframe: TimeFrame = {
+  current: 0,
+  previous: 0,
+};
+
+watch(
+  () => [props.singleTime, props.timeInterval],
+  ([singleTime, timeInterval]) => {
+    console.log("update props");
+    isTimeFrameUpdated.value = true;
+
+    timeframe =
+      timeInterval === "Daily"
+        ? singleTime.content.timeframes.daily
+        : timeInterval === "Weekly"
+        ? singleTime.content.timeframes.weekly
+        : timeInterval === "Monthly"
+        ? singleTime.content.timeframes.monthly
+        : {
+            current: 0,
+            previous: 0,
+          };
+  }
+);
 </script>
 
 <style scoped>
@@ -55,7 +96,7 @@ const props = defineProps({ singleTime: { type: Object, required: true } });
   color: var(--blue-100);
 }
 
-#menubar{
+#menubar {
   cursor: pointer;
 }
 </style>

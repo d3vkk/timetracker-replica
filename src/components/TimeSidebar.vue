@@ -1,26 +1,36 @@
 <template>
   <div class="m-4">
-    <div id="profilecard" class="pt-10 pb-14 px-6 rounded-lg">
-      <div class="avatar rounded-full border-white border-2 mb-8">
+    <section id="profilecard" class="px-6 pt-10 rounded-lg pb-14">
+      <article class="mb-8 border-2 border-white rounded-full avatar">
         <img
           src="/img/image-jeremy.png"
           alt="Avatar Jeremy Robson"
         />
-      </div>
-      <div>
+      </article>
+      <article>
         <div class="profile-report-for">Report for</div>
         <div class="profile-name">Jeremy Robson</div>
-      </div>
-    </div>
-    <ul id="navbar" class="pt-10 pb-6 px-6 rounded-lg">
-      <li>Daily</li>
-      <li>Weekly</li>
-      <li>Monthly</li>
-    </ul>
+      </article>
+    </section>
+    <section id="navbar" class="px-6 pt-10 pb-6 rounded-lg">
+      <ul v-for="interval in timeIntervals" :key="interval.id">
+        <li @click="navigateTime(interval.content)">{{ interval.content }}</li>
+      </ul>
+    </section>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { timeIntervals } from "../utils/timeIntervals";
+
+const emit = defineEmits<{
+  (e: "navigateInterval", sendInterval: string): void;
+}>();
+
+function navigateTime(sendInterval: string): void {
+  emit("navigateInterval", sendInterval);
+}
+</script>
 
 <style scoped>
 #profilecard {
