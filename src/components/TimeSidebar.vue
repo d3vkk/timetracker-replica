@@ -3,7 +3,7 @@
     <div id="profilecard" class="pt-10 pb-14 px-6 rounded-lg">
       <div class="avatar rounded-full border-white border-2 mb-8">
         <img
-          src="/img/timetracker/image-jeremy.png"
+          src="/img/image-jeremy.png"
           alt="Avatar Jeremy Robson"
         />
       </div>

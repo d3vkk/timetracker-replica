@@ -6,10 +6,6 @@ const routes: Array<RouteRecordRaw> = [
     path: "/",
     component: LandingPage,
   },
-  {
-    path: "/timetracker",
-    component: () => import("../views/TimeTracker.vue"),
-  },
 ];
 const router = createRouter({
   history: createWebHistory(),

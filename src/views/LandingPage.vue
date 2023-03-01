@@ -1,13 +1,26 @@
 <template>
-  <div>
-    <div class="text-4xl font-bold">Replica</div>
+  <div id="timetracker" class="grid grid-cols-5 p-10 place-content-center">
+    <section class=""><TimeSidebar /></section>
+    <section class="col-start-2 col-end-5">
+      <article class="grid grid-cols-3">
+        <p v-for="singleTime in timeCardData" :key="singleTime.content.title">
+          <TimeCard :singleTime="singleTime" />
+        </p>
+      </article>
+    </section>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({});
+<script setup lang="ts">
+import TimeSidebar from "../components/TimeSidebar.vue";
+import TimeCard from "../layouts/TimeCard.vue";
+import { timeCardData } from "../utils/timeCardData";
 </script>
 
-<style scoped></style>
+<style scoped>
+#timetracker {
+  background-color: var(--blue-400);
+  color: var(--white);
+  height: 100vh;
+}
+</style>
