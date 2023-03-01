@@ -2,10 +2,7 @@
   <div class="m-4">
     <section id="profilecard" class="px-6 pt-10 rounded-lg pb-14">
       <article class="mb-8 border-2 border-white rounded-full avatar">
-        <img
-          src="/img/image-jeremy.png"
-          alt="Avatar Jeremy Robson"
-        />
+        <img src="/img/image-jeremy.png" alt="Avatar Jeremy Robson" />
       </article>
       <article>
         <div class="profile-report-for">Report for</div>
@@ -14,7 +11,12 @@
     </section>
     <section id="navbar" class="px-6 pt-10 pb-6 rounded-lg">
       <ul v-for="interval in timeIntervals" :key="interval.id">
-        <li @click="navigateTime(interval.content)">{{ interval.content }}</li>
+        <li
+          :class="{ highlight: interval.content === highlightInterval }"
+          @click="navigateTime(interval.content)"
+        >
+          {{ interval.content }}
+        </li>
       </ul>
     </section>
   </div>
@@ -22,12 +24,20 @@
 
 <script setup lang="ts">
 import { timeIntervals } from "../utils/timeIntervals";
+import { ref, Ref } from "vue";
+
+const props = defineProps({
+  defaultInterval: { type: String, required: true },
+});
+
+var highlightInterval: Ref<string> = ref(props.defaultInterval);
 
 const emit = defineEmits<{
   (e: "navigateInterval", sendInterval: string): void;
 }>();
 
 function navigateTime(sendInterval: string): void {
+  highlightInterval.value = sendInterval;
   emit("navigateInterval", sendInterval);
 }
 </script>
@@ -66,7 +76,9 @@ function navigateTime(sendInterval: string): void {
   cursor: pointer;
   @apply my-3;
 }
-#navbar li:hover {
+
+#navbar li:hover,
+#navbar li.highlight {
   color: var(--white);
 }
 </style>

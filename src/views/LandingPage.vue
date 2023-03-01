@@ -1,7 +1,7 @@
 <template>
   <div id="timetracker" class="grid grid-cols-5 p-10 place-content-center">
     <section class="">
-      <TimeSidebar @navigate-interval="navigateInterval" />
+      <TimeSidebar :defaultInterval="defaultInterval" @navigate-interval="navigateInterval" />
     </section>
     <section class="col-start-2 col-end-5">
       <article class="grid grid-cols-3">
@@ -20,7 +20,8 @@ import { timeCardData } from "../utils/timeCardData";
 import { ref } from "vue";
 import type { Ref } from "vue";
 
-var timeInterval: Ref<string> = ref("Daily");
+const defaultInterval: string = "Daily";
+var timeInterval: Ref<string> = ref(defaultInterval);
 function navigateInterval(interval: string): void {
   timeInterval.value = interval;
 }
