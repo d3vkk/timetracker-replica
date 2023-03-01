@@ -7,10 +7,6 @@ const routes: Array<RouteRecordRaw> = [
     component: LandingPage,
   },
   {
-    path: "/login",
-    component: () => import("../views/Login.vue"),
-  },
-  {
     path: "/timetracker",
     component: () => import("../views/TimeTracker.vue"),
   },
