@@ -56,18 +56,18 @@ var timeframe: TimeFrame = {
 };
 
 watch(
-  () => [props.singleTime, props.timeInterval],
+  () => [props.singleTime.content.timeframes, props.timeInterval],
   ([singleTime, timeInterval]) => {
     console.log("update props");
     isTimeFrameUpdated.value = true;
 
     timeframe =
       timeInterval === "Daily"
-        ? singleTime.content.timeframes.daily
+        ? singleTime.daily
         : timeInterval === "Weekly"
-        ? singleTime.content.timeframes.weekly
+        ? singleTime.weekly
         : timeInterval === "Monthly"
-        ? singleTime.content.timeframes.monthly
+        ? singleTime.monthly
         : {
             current: 0,
             previous: 0,
