@@ -1,7 +1,13 @@
 <template>
-  <div id="timetracker" class="p-10 lg:grid lg:grid-cols-5 place-content-center">
+  <div
+    id="timetracker"
+    class="p-10 lg:grid lg:grid-cols-5 place-content-center"
+  >
     <section>
-      <TimeSidebar :defaultInterval="defaultInterval" @navigate-interval="navigateInterval" />
+      <TimeSidebar
+        :defaultInterval="defaultInterval"
+        @navigate-interval="navigateInterval"
+      />
     </section>
     <section class="col-start-2 col-end-5">
       <article class="grid grid-cols-1 lg:grid-cols-3">
@@ -31,6 +37,12 @@ function navigateInterval(interval: string): void {
 #timetracker {
   background-color: var(--blue-400);
   color: var(--white);
-  height: 100vh;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  #timetracker {
+    height: 100vh;
+  }
 }
 </style>
