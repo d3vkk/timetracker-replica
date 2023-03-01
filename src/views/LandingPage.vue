@@ -1,10 +1,10 @@
 <template>
-  <div id="timetracker" class="grid grid-cols-5 p-10 place-content-center">
-    <section class="">
+  <div id="timetracker" class="p-10 lg:grid lg:grid-cols-5 place-content-center">
+    <section>
       <TimeSidebar :defaultInterval="defaultInterval" @navigate-interval="navigateInterval" />
     </section>
     <section class="col-start-2 col-end-5">
-      <article class="grid grid-cols-3">
+      <article class="grid grid-cols-1 lg:grid-cols-3">
         <p v-for="singleTime in timeCardData" :key="singleTime.content.title">
           <TimeCard :singleTime="singleTime" :timeInterval="timeInterval" />
         </p>

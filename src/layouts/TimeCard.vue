@@ -11,8 +11,11 @@
         <div>{{ singleTime.content.title }}</div>
         <div id="menubar" v-html="iconEllipsis"></div>
       </article>
-      <article class="flex flex-row lg:flex-col md:flex-col">
-        <span v-show="!isTimeFrameUpdated">
+      <article>
+        <span
+          class="flex flex-row items-center justify-between lg:flex-col lg:items-start"
+          v-show="!isTimeFrameUpdated"
+        >
           <div class="details-timeframe-current">
             {{ singleTime.content.timeframes.daily.current }}hrs
           </div>
@@ -20,7 +23,10 @@
             Last Week - {{ singleTime.content.timeframes.daily.previous }}hrs
           </div>
         </span>
-        <span v-show="isTimeFrameUpdated">
+        <span
+          class="flex flex-row items-center justify-between lg:flex-col lg:items-start"
+          v-show="isTimeFrameUpdated"
+        >
           <div class="details-timeframe-current">
             {{ timeframe.current }}hrs
           </div>
