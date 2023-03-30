@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import { ref, watch, Ref } from "vue";
-import { iconEllipsis } from "../utils/icons";
+import { iconEllipsis } from "../data/icons";
 import TimeFrame from "../types/TimeFrame";
 
 const props = defineProps({

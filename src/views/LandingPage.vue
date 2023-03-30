@@ -22,7 +22,7 @@
 <script setup lang="ts">
 import TimeSidebar from "../components/TimeSidebar.vue";
 import TimeCard from "../layouts/TimeCard.vue";
-import { timeCardData } from "../utils/timeCardData";
+import { timeCardData } from "../data/timeCardData";
 import { ref } from "vue";
 import type { Ref } from "vue";
 

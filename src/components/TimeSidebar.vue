@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import { timeIntervals } from "../utils/timeIntervals";
+import { timeIntervals } from "../data/timeIntervals";
 import { ref, Ref } from "vue";
 
 const props = defineProps({
