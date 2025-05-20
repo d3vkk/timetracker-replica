@@ -1,6 +1,6 @@
 # Timetracker Replica
 
-![Timetracker Replica Screenshot](https://github.com/d3vkk/timetracker-replica/blob/master/client/public/timetracker-replica-screenshot.jpg)
+![Timetracker Replica Screenshot](https://github.com/d3vkk/timetracker-replica/blob/master/timeracker-replica-screenshot.png)
 
 Timetracker Replica
 
