@@ -4,8 +4,6 @@
 
 Timetracker Replica
 
-[UI Demo](https://timetrackerreplica.netlify.app)
-
 ## Contribution
 
 To contribute, [use this guide](https://github.com/d3vkk/open-source/blob/master/CONTRIBUTING.md)
